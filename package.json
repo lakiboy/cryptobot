@@ -1,0 +1,19 @@
+{
+  "name": "cryptobot",
+  "license": "MIT",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "dependencies": {
+    "telegraf": "^3.11.1"
+  },
+  "scripts": {
+    "start": "node bot.js",
+    "lint": "eslint bot.js"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "eslint-plugin-node": "^5.1.1"
+  }
+}

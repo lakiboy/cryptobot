@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  node:
+    build: .
+    environment:
+      - NODE_ENV=development
+      - BOT_TOKEN=$CRYPTOBOT_TOKEN
+    volumes:
+      - cryptobot-sync:/usr/src/app:nocopy
+    expose:
+      - 3000
+
+volumes:
+  cryptobot-sync:
+    external: true

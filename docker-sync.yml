@@ -1,0 +1,13 @@
+version: "2"
+
+options:
+  verbose: false
+  compose-file-path: docker-compose.yml
+
+syncs:
+  cryptobot-sync:
+    src: '.'
+    sync_excludes: ['.idea']
+    sync_userid: '999'
+    host_disk_mount_mode: 'cached'
+    notify_terminal: true

@@ -1,0 +1,8 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:node/recommended"],
+  "plugins": ["node"],
+  "rules": {
+    "no-console": 0
+  }
+}
