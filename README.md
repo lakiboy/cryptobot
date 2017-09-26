@@ -2,6 +2,8 @@
 
 Get crypto currency spot price from [Coinbase](https://www.coinbase.com).
 
+Subscribe to [@cryptomsgbot](https://telegram.me/cryptomsgbot) or register your own.
+
 ## Run in Docker
 
 From project directory.
