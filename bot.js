@@ -1,6 +1,7 @@
 const Telegraf = require('telegraf')
 const axios = require('axios')
 
+const QUOTE_CURRENCY = 'EUR'
 const CURRENCIES = ['BTC', 'ETH', 'LTC']
 const FOLLOW_INTERVAL = 15 * 60 * 1000 // 15 minutes
 
@@ -12,7 +13,7 @@ const http = axios.create({
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 const fetchAnReply = async (currency, reply) => {
-    const { data: { data }} = await http.get(`/prices/${currency}-EUR/spot`)
+    const { data: { data }} = await http.get(`/prices/${currency}-${QUOTE_CURRENCY}/spot`)
 
     return reply(`*${data.base}*: ${data.amount} ${data.currency}`)
 }
