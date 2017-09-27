@@ -12,7 +12,7 @@ const http = axios.create({
 })
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
-const fetchAnReply = async (currency, reply) => {
+const fetchAndReply = async (currency, reply) => {
     const { data: { data }} = await http.get(`/prices/${currency}-${QUOTE_CURRENCY}/spot`)
 
     return reply(`*${data.base}*: ${data.amount} ${data.currency}`)
@@ -25,13 +25,13 @@ bot.command('follow', ({ message: { text }, replyWithMarkdown }) => {
         return replyWithMarkdown(`Please type _/follow_ <${CURRENCIES.join(' | ')}>`)
     }
 
-    setInterval(() => fetchAnReply(currency, replyWithMarkdown), FOLLOW_INTERVAL)
+    setInterval(() => fetchAndReply(currency, replyWithMarkdown), FOLLOW_INTERVAL)
 
     return replyWithMarkdown(`Following *${currency}*`)
 })
 
-bot.hears('BTC', ({ replyWithMarkdown }) => fetchAnReply('BTC', replyWithMarkdown))
-bot.hears('ETH', ({ replyWithMarkdown }) => fetchAnReply('ETH', replyWithMarkdown))
-bot.hears('LTC', ({ replyWithMarkdown }) => fetchAnReply('LTC', replyWithMarkdown))
+bot.hears('BTC', ({ replyWithMarkdown }) => fetchAndReply('BTC', replyWithMarkdown))
+bot.hears('ETH', ({ replyWithMarkdown }) => fetchAndReply('ETH', replyWithMarkdown))
+bot.hears('LTC', ({ replyWithMarkdown }) => fetchAndReply('LTC', replyWithMarkdown))
 
 bot.startPolling()
