@@ -2,7 +2,7 @@ const Telegraf = require('telegraf')
 const axios = require('axios')
 
 const QUOTE_CURRENCY = 'EUR'
-const CURRENCIES = ['BTC', 'ETH', 'LTC']
+const CURRENCIES = ['BTC', 'ETH', 'LTC', 'BCH']
 const FOLLOW_INTERVAL = 15 * 60 * 1000 // 15 minutes
 
 const http = axios.create({
@@ -30,8 +30,8 @@ bot.command('follow', ({ message: { text }, replyWithMarkdown }) => {
     return replyWithMarkdown(`Following *${currency}*`)
 })
 
-bot.hears('BTC', ({ replyWithMarkdown }) => fetchAndReply('BTC', replyWithMarkdown))
-bot.hears('ETH', ({ replyWithMarkdown }) => fetchAndReply('ETH', replyWithMarkdown))
-bot.hears('LTC', ({ replyWithMarkdown }) => fetchAndReply('LTC', replyWithMarkdown))
+CURRENCIES.forEach(symbol => {
+    bot.hears(symbol, ({ replyWithMarkdown }) => fetchAndReply(symbol, replyWithMarkdown))
+})
 
 bot.startPolling()
