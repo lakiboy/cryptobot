@@ -6,7 +6,7 @@
     "node": ">=8.5.0"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.18.0",
     "telegraf": "^3.11.1"
   },
   "scripts": {
