@@ -14,7 +14,7 @@
     "lint": "eslint bot.js"
   },
   "devDependencies": {
-    "eslint": "^5.0.1",
+    "eslint": "^5.8.0",
     "eslint-plugin-node": "^6.0.1"
   }
 }
